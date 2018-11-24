@@ -6,7 +6,9 @@ import { HiLoComponent } from './hi-lo/hi-lo.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { GenericErrorComponent } from './generic-error/generic-error.component';
-
+import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material';
 
 const routes: Routes = [
   {
@@ -45,7 +47,10 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    BrowserAnimationsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

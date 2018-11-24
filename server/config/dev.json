@@ -1,0 +1,8 @@
+{
+  "iextradingUrl": "https://api.iextrading.com",
+  "sessionOptions": {
+    "secret": "some-secret",
+    "resave": false,
+    "saveUninitialized": true
+  }
+}
