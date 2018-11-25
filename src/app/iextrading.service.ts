@@ -9,8 +9,6 @@ import {LoggerService} from "./logger.service";
   providedIn: 'root'
 })
 export class IextradingService {
-
-  private aaplUrl = 'portfolio/iextrading/1.0/stock/aapl/chart/2y';
   private logger = new LoggerService(this.constructor.name);
 
   constructor(
@@ -19,8 +17,9 @@ export class IextradingService {
     private router: Router) {
   }
 
-  getStockPriceHistory() {
-    return this.http.get<any>(this.aaplUrl).pipe(
+  getStockPriceHistory(symbolsCsv) {
+    const url = `https://api.iextrading.com/1.0/stock/market/batch?symbols=${symbolsCsv}&types=chart&range=2y`;
+    return this.http.get<any>(url).pipe(
       tap(
         res => {
           if (!res) {
